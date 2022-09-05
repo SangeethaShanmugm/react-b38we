@@ -4,6 +4,8 @@ import { INTIAL_MOVIE_LIST } from "./App";
 import { API } from "./global"
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import { useNavigate } from "react-router-dom";
 
 export function MovieList() {
 
@@ -20,7 +22,7 @@ export function MovieList() {
 
   useEffect(() => getMovies(), [])
 
-
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -43,6 +45,16 @@ export function MovieList() {
         <DeleteIcon />
       </IconButton>
           }
+          //edit button   - movies/edit/:id
+         editButton ={
+            <IconButton 
+            onClick={() => navigate(`/movie/edit/${mv.id}`)}
+            color="success"
+            >
+        <EditIcon />
+      </IconButton>
+          }
+
           />
         ))}
 

@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Paper from '@mui/material/Paper';
-import { MusicVideoSharp } from "@mui/icons-material";
+import { EditMovie } from "./EditMovie";
 
 
 export const INTIAL_MOVIE_LIST = [
@@ -100,7 +100,7 @@ export const INTIAL_MOVIE_LIST = [
 
 export default function App() {
   
-  const [movieList, setMovieList] = useState(INTIAL_MOVIE_LIST );
+  // const [movieList, setMovieList] = useState(INTIAL_MOVIE_LIST );
   const [mode, setMode] = useState("light");
   
   // useEffect(() => {
@@ -161,7 +161,8 @@ export default function App() {
         <Route path="/movie" element={<MovieList />} />
         <Route path="/film" element={<Navigate replace to="/movie" />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
-        <Route path="/movie/add" element={<AddMovie movieList={movieList} setMovieList={setMovieList} />} />
+        <Route path="/movie/add" element={<AddMovie />} />
+        <Route path="/movie/edit/:id" element={<EditMovie />} />
 
         <Route path="/color-game" element={<AddColor />} />
         <Route path="/users" element={<UserList />} />
